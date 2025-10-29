@@ -1,0 +1,7 @@
+# Exclui todos os arquivos de build locais
+**/bin/
+**/obj/
+
+# Exclui arquivos de configuração de usuário do Visual Studio
+.vs/
+*.user
