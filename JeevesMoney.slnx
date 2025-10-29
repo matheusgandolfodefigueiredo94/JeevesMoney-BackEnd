@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="JeevesMoney.Application/JeevesMoney.Application.csproj" />
+  <Project Path="JeevesMoney.Domain/JeevesMoney.Domain.csproj" />
+  <Project Path="JeevesMoney.Infrastructure/JeevesMoney.Infrastructure.csproj" />
+  <Project Path="JeevesMoney.Api/JeevesMoney.Api.csproj" />
+</Solution>
