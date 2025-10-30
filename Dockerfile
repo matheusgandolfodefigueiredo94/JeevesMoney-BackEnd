@@ -6,14 +6,14 @@ WORKDIR /src
 # Copia o arquivo .sln e os .csproj de CADA projeto PRIMEIRO
 # Isso otimiza o cache do Docker. Se o código-fonte mudar, mas os projetos não,
 # o 'dotnet restore' não precisa ser rodado novamente.
-COPY ["JeevesMoney.sln", "."]
+COPY ["JeevesMoney.slnx", "."]
 COPY ["JeevesMoney.Api/JeevesMoney.Api.csproj", "JeevesMoney.Api/"]
 COPY ["JeevesMoney.Application/JeevesMoney.Application.csproj", "JeevesMoney.Application/"]
 COPY ["JeevesMoney.Domain/JeevesMoney.Domain.csproj", "JeevesMoney.Domain/"]
 COPY ["JeevesMoney.Infrastructure/JeevesMoney.Infrastructure.csproj", "JeevesMoney.Infrastructure/"]
 
 # Restaura os pacotes (NuGet)
-RUN dotnet restore "JeevesMoney.sln"
+RUN dotnet restore "JeevesMoney.slnx"
 
 # Copia TODO o resto do código-fonte
 COPY . .
