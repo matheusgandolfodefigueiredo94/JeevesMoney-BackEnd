@@ -62,7 +62,9 @@ namespace JeevesMoney.Infrastructure.Services
  {
  Symbol = item.GetPropertyOrDefault("symbol", string.Empty),
  Price = item.GetPropertyOrDefault("price",0m),
- Currency = item.GetPropertyOrDefault<string?>("currency", null)
+ Currency = item.GetPropertyOrDefault<string?>("currency", null),
+ Change = item.GetPropertyOrDefault("regularMarketChange", 0m),
+ ChangePercent = item.GetPropertyOrDefault("regularMarketChangePercent", 0m),
  };
 
  // Try common alternative property names
