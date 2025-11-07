@@ -21,6 +21,17 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowDevAndProd",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200", "https://jeevesmoney.onrender.com") // Permite o seu frontend
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 var supabaseConfig = builder.Configuration.GetSection("Supabase");
 var supabaseAuthority = supabaseConfig["Authority"];
 var supabaseAudience = supabaseConfig["Audience"];
@@ -90,6 +101,8 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "JeevesMoney API v1");
     c.RoutePrefix = "swagger"; // serve at /swagger
 });
+
+app.UseCors("AllowDevAndProd");
 
 app.UseAuthentication();
 app.UseAuthorization();
